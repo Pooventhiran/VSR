@@ -2,7 +2,6 @@
 
 ## Dataset: MIRACL-VC1
 Link to the dataset: https://sites.google.com/site/achrafbenhamadou/-datasets/miracl-vc1
-
 There will be 10-15 zip files. Download and extract them.
 
 ## Pre-process Data
@@ -11,7 +10,8 @@ The datatset will be a video so that it must be converted into a set of images. 
 
 > **Code/models$** python VisualizeLip.py --input "C:\Users\example\Downloads\mirac"
 
-Make sure that the directory structure of VSR looks like this (omitting **Phrases** from the **data**)
+Make sure that the directory structure of VSR looks something like this (omitting **Phrases** from the **data**)
+
 ![Directory Structure](dir_struct.PNG)
 
 ## Predict output

@@ -1,7 +1,12 @@
 # Running Visual Speech Recognition using 3D-CNN
 
 ## Dataset: MIRACL-VC1
-Link to the dataset: https://sites.google.com/site/achrafbenhamadou/-datasets/miracl-vc1. There will be 10-15 zip files. Download and extract them.
+Link to the dataset: https://sites.google.com/site/achrafbenhamadou/-datasets/miracl-vc1. 
+
+#### About the Dataset
+* Fifteen speakers (10 women and 5 men)
+* Ten words and ten phrases, each uttered 10 times
+* Both depth and color images
 
 ## Pre-process Data
 ### Convert video to images
@@ -18,4 +23,4 @@ Run the lip_reading.py file to predict the outputs of lip movements. Look at the
 
 > **Code$** python lip_reading.py
 
-The output is redirected into a file called **pred_out.txt**.
+The output (true class vs predicetd class) is redirected into a file called **pred_out.txt**.

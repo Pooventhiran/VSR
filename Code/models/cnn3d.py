@@ -132,17 +132,21 @@ class CNN:
         plt.legend(loc="upper left")
         plt.show()
 
-    def test(self, X):
-        print("---Testing CNN3D---")
+    def test(self, X, weight_file=None):
         if self.weight_file is not None:
             self.model.load_weights("../{self.weight_file")
+        if weight_file is not None:
+            self.model.load_weights("../{weight_file")
+        print("---Testing CNN3D---")
         predictions = self.model.predict(x=X)
         return predictions
 
-    def evaluate(self, X, Y):
+    def evaluate(self, X, Y, weight_file=None):
         print("---Evaluating CNN3D---")
         if self.weight_file is not None:
             self.model.load_weights("../{self.weight_file}")
+        if weight_file is not None:
+            self.model.load_weights("../{weight_file")
         eval_ = self.model.evaluate(x=X, y=Y)
         print("Test loss:", eval_[0])
         print("Test accuracy:", eval_[1])

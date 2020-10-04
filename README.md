@@ -8,6 +8,11 @@ Link to the dataset: https://sites.google.com/site/achrafbenhamadou/-datasets/mi
 * Ten words and ten phrases, each uttered 10 times
 * Both depth and color images
 
+## Setup environment
+Setup a python environment (Python3.6 during the writing of this file) with necessary packages in requirements.txt file.
+
+> **$** pip install -r requirements.txt
+
 ## Pre-process Data
 ### Create videos
 To extract lip regions, combine all color images into a video to feed into VisualizeLip.py using preprocess/make_videos.py file. This expects a command-line argument, the path to data.

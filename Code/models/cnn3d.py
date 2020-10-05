@@ -135,9 +135,9 @@ class CNN:
 
     def test(self, X, weight_file=None):
         if self.weight_file is not None:
-            self.model.load_weights("../{self.weight_file}")
+            self.model.load_weights(f"../{self.weight_file}")
         if weight_file is not None:
-            self.model.load_weights("../{weight_file}")
+            self.model.load_weights(f"../{weight_file}")
         print("---Testing CNN3D---")
         predictions = self.model.predict(x=X)
         return predictions
@@ -145,9 +145,9 @@ class CNN:
     def evaluate(self, X, Y, weight_file=None):
         print("---Evaluating CNN3D---")
         if self.weight_file is not None:
-            self.model.load_weights("../{self.weight_file}")
+            self.model.load_weights(f"../{self.weight_file}")
         if weight_file is not None:
-            self.model.load_weights("../{weight_file}")
+            self.model.load_weights(f"../{weight_file}")
         eval_ = self.model.evaluate(x=X, y=Y)
         print("Test loss:", eval_[0])
         print("Test accuracy:", eval_[1])

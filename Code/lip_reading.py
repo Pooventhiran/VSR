@@ -45,4 +45,7 @@ cnn.evaluate(test_X, test_y)
 # Print confusion matrix and classification report
 dec_pred = feat.decode_one_hot(pred, label_encoder).reshape(len(test_X))
 dec_truth = feat.decode_one_hot(test_y, label_encoder).reshape(len(test_X))
+
+dec_truth = [labels[x] for x in dec_truth]
+dec_pred = [labels[x] for x in dec_pred]
 cnn.print_report(dec_truth, dec_pred, labels)

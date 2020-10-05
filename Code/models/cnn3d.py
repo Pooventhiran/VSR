@@ -10,7 +10,7 @@ from tensorflow.keras.models import Sequential, load_model
 from tensorflow.keras.layers import Dense, Activation, Flatten, Dropout
 from tensorflow.keras.layers import Conv3D, MaxPooling3D, BatchNormalization
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
-from sklearn.metrics import classification_report
+from sklearn.metrics import classification_report, confusion_matrix
 
 
 class CNN:
@@ -18,6 +18,7 @@ class CNN:
         print("---3D CNN for Visual Speech Recognition---")
         self.model = Sequential()
         self.history = None
+        self.weight_file = None
 
     def build_net(self):
         self.model.add(
@@ -134,9 +135,9 @@ class CNN:
 
     def test(self, X, weight_file=None):
         if self.weight_file is not None:
-            self.model.load_weights("../{self.weight_file")
+            self.model.load_weights("../{self.weight_file}")
         if weight_file is not None:
-            self.model.load_weights("../{weight_file")
+            self.model.load_weights("../{weight_file}")
         print("---Testing CNN3D---")
         predictions = self.model.predict(x=X)
         return predictions
@@ -146,7 +147,7 @@ class CNN:
         if self.weight_file is not None:
             self.model.load_weights("../{self.weight_file}")
         if weight_file is not None:
-            self.model.load_weights("../{weight_file")
+            self.model.load_weights("../{weight_file}")
         eval_ = self.model.evaluate(x=X, y=Y)
         print("Test loss:", eval_[0])
         print("Test accuracy:", eval_[1])
@@ -156,19 +157,20 @@ class CNN:
         import seaborn as sn
         import pandas as pd
 
-        targets = sorted(labels.items(), key=lambda kv: k)
+        targets = [kv[1] for kv in sorted(labels.items(), key=lambda kv: kv[0])]
+        cf = confusion_matrix(truth, predictions, labels=targets)
         ax = sn.heatmap(
             cf,
             annot=True,
             fmt="d",
-            xticklabels=[kv[1] for kv in targets],
-            yticklabels=[kv[1] for kv in targets],
+            xticklabels=targets,
+            yticklabels=targets,
         )
         ax.set(xlabel="Prediction", ylabel="Ground Truth")
         plt.show()
         print(
             classification_report(
-                truth, predictions, digits=2, target_names=[kv[1] for kv in targets]
+                truth, predictions, digits=4, target_names=targets
             )
         )
 

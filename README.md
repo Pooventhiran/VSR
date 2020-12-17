@@ -1,5 +1,7 @@
 # Running Visual Speech Recognition using 3D-CNN
 
+Please cite this paper [Speaker-Independent Speech Recognition using Visual Features](https://thesai.org/Publications/ViewPaper?Volume=11&Issue=11&Code=IJACSA&SerialNo=75) if you use this work in your research.
+
 ## Dataset: MIRACL-VC1
 Link to the dataset: https://sites.google.com/site/achrafbenhamadou/-datasets/miracl-vc1. 
 
